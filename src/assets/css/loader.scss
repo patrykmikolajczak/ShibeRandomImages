@@ -1,0 +1,65 @@
+.loader-wrap{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background-color: #ffffff;
+    opacity: 1;
+    display: block;
+    transition: all 1s;
+}
+
+.loader{
+    $loader-size: 4;
+    $animation-duration: 1.5s;
+    $animation-speed: 10;
+    $animation-scale: 1.4;
+    $loader-color: #ff6200;
+    $loader-font-family: 'Arial';
+    
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    height: ($loader-size*10px);
+    width: ($loader-size*30px);
+    box-sizing: border-box;
+    
+    .loader-item{
+        position: relative;
+        float: left;
+        height: ($loader-size*10px);
+        width: ($loader-size*4px);
+        margin: 0 ($loader-size/2)*1px;
+        background-color: $loader-color;
+        
+        @for $i from 1 through 10 {
+            &:nth-child(#{$i}){
+                animation: loader-item-#{$i} $animation-duration linear infinite;
+            }    
+        }        
+        
+    }
+    
+    @for $i from 0 through 9 {
+        @keyframes loader-item-#{$i+1}{
+            #{$i+1+$i*5 * 1%}{
+              transform: scaleY(1);
+            }
+            #{$i+1+$i*5+$animation-speed * 1%}{
+                transform: scaleY($animation-scale);
+            }
+            #{$i+1+$i*5+$animation-speed*2 * 1%}{
+                transform: scaleY(1);
+            }
+            100%{
+                transform: scaleY(1);
+            }
+        }    
+    }
+
+}

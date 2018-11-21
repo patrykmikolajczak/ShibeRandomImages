@@ -1,29 +1,29 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+  <!-- <div id="app">
     <router-view/>
-  </div>
+  </div> -->
+    <div id="app">
+        <div class="component-wrapper">
+            <div id="nav">
+                <router-link to="/">Lista zdjęć</router-link> |
+                <router-link to="/ulubione">Ulubione</router-link>
+            </div>
+            <router-view/>
+        </div>
+        <div class="modal-backdrop fade show" v-show="isModalShowing"></div>
+    </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
+<script>
+import { mapGetters } from 'vuex'
+
+export default {
+    name: 'app',
+    computed: {
+        ...mapGetters(['isModalShowing']),
+    },
+    mounted() {
+        this.$store.dispatch('stopLoading')
     }
-  }
 }
-</style>
+</script>
