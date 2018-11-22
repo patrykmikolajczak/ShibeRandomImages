@@ -79,7 +79,7 @@ export default {
         getData() {
             return new Promise( (resolve, reject) => {
                 this.loading = true
-                this.$http.get('http://localhost:666/http://shibe.online/api/shibes?count=16')
+                this.$http.get('https://cors-anywhere.herokuapp.com/http://shibe.online/api/shibes?count=16')
                     .then( ( resp ) => {
                         let buff_resp = resp.data.map( p => {
                             return { 
