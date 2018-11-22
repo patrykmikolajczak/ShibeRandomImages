@@ -1,5 +1,8 @@
 # shiberandomimages
 
+# DEMO
+http://shiberandomimages.wyraj-it.pl/
+
 ## Project setup
 ```
 npm install
