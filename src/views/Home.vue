@@ -1,5 +1,5 @@
 <template>
-    <div class="home">
+    <div class="home container">
         <div
             v-for="(p,i) in photos_list"
             :key="i"

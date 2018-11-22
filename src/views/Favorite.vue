@@ -1,5 +1,5 @@
 <template>
-    <div class="about">
+    <div class="favorites container">
         <div
             v-for="(p,i) in photos_list"
             :key="i"
